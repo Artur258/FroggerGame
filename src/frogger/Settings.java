@@ -4,7 +4,6 @@ package frogger;
 import jplay.Time;
 import java.awt.*;
 
-//TODO create constants for the lines and refactor this shit cause it is ugly
 public final class Settings {
 
     //GENERAL GAMEPLAY
@@ -14,7 +13,7 @@ public final class Settings {
     public static final int STARTING_LIVES = 3;
     public final static int STARTING_POSITION_X = 400;
     public final static int STARTING_POSITION_Y = 400;
-    public final static double PLAYER_SPEED = 10;
+    public final static double PLAYER_SPEED = 20;
     public static final int FIRST_LEVEL = 0;
     public final static String COVER_IMAGE = "cover2.jpg";
     //VEHICLES'S - Gameplay
@@ -33,14 +32,16 @@ public final class Settings {
     public static final int LANE_2_Y = 128;
     public static final int LANE_3_Y = 160;
     public static final int LANE_4_Y = 192;
-    public static final int LANE_5_Y = 320;
-    public static final int LANE_6_Y = 344;
+    public static final int LANE_5_Y = 288;
+    public static final int LANE_6_Y = 320;
+    public static final int LANE_7_Y = 344;
     public static final double LANE_1_SPEED = 1;
     public static final double LANE_2_SPEED = 1.3;
     public static final double LANE_3_SPEED = 1.5;
     public static final double LANE_4_SPEED = 1.7;
     public static final double LANE_5_SPEED = 2;
     public static final double LANE_6_SPEED = 2.1;
+    public static final double LANE_7_SPEED = 2.5;
     public static final int NUMBER_OF_LANES = 6;
 
     //SPRITES

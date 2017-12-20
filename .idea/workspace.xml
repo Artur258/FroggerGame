@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c63705a1-60c3-4c04-a557-b0c10794e8f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Car.java" afterPath="$PROJECT_DIR$/src/frogger/Car.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/FroggerGame/frogger/Game.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/FroggerGame/frogger/Settings.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Game.java" afterPath="$PROJECT_DIR$/src/frogger/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Lane.java" afterPath="$PROJECT_DIR$/src/frogger/Lane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Motorcycle.java" afterPath="$PROJECT_DIR$/src/frogger/Motorcycle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/NameInputWindow.java" afterPath="$PROJECT_DIR$/src/frogger/NameInputWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Player.java" afterPath="$PROJECT_DIR$/src/frogger/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Ranking.java" afterPath="$PROJECT_DIR$/src/frogger/Ranking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Settings.java" afterPath="$PROJECT_DIR$/src/frogger/Settings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Truck.java" afterPath="$PROJECT_DIR$/src/frogger/Truck.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frogger/Vehicle.java" afterPath="$PROJECT_DIR$/src/frogger/Vehicle.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/rankings.txt" afterPath="$PROJECT_DIR$/src/resources/rankings.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,12 +21,12 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frogger/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="84" column="36" lean-forward="false" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+            <state relative-caret-position="557">
+              <caret line="114" column="58" lean-forward="false" selection-start-line="114" selection-start-column="58" selection-end-line="114" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2431#2432#0" expanded="true" />
-                <element signature="e#2479#2480#0" expanded="true" />
+                <element signature="e#2487#2488#0" expanded="true" />
+                <element signature="e#2535#2536#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,8 +47,8 @@
       <file leaf-file-name="Settings.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/frogger/Settings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+            <state relative-caret-position="147">
+              <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -598,11 +592,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/scenario/scenario1.scn">
+    <entry file="file://$PROJECT_DIR$/src/frogger/Car.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="57" lean-forward="true" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="126">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding>
+            <element signature="e#135#136#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frogger/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="114" column="58" lean-forward="false" selection-start-line="114" selection-start-column="58" selection-end-line="114" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2487#2488#0" expanded="true" />
+            <element signature="e#2535#2536#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -612,17 +621,6 @@
           <caret line="39" column="73" lean-forward="true" selection-start-line="39" selection-start-column="73" selection-end-line="39" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frogger/Car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding>
-            <element signature="e#135#136#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -637,22 +635,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frogger/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/resources/scenario/scenario1.scn">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="84" column="36" lean-forward="false" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2431#2432#0" expanded="true" />
-            <element signature="e#2479#2480#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="8" column="57" lean-forward="true" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frogger/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+        <state relative-caret-position="147">
+          <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

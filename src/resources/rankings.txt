@@ -4,6 +4,8 @@ asdasda
 1
 adsadasdas
 1
+
+1
 asdasdasdad
 0
 dasdasdasdasasd
@@ -43,4 +45,14 @@ null
 null
 0
 adasda
+0
+null
+0
+null
+0
+null
+0
+null
+0
+
 0
