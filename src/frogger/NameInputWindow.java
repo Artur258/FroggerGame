@@ -13,7 +13,7 @@ public class NameInputWindow
                 frame,
                 "Type your name: ",
                 "Name Input Window",
-                JOptionPane.WARNING_MESSAGE
+                JOptionPane.PLAIN_MESSAGE
         );
     }
 

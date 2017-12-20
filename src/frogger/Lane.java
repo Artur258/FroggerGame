@@ -8,10 +8,12 @@ public class Lane {
     private int y_position;
     private Vector<Vehicle> vehicles;
     private int lastSecond;
+    private double speed;
 
 
-    public Lane(int y_position) {
+    public Lane(int y_position, double speed) {
         this.y_position = y_position;
+        this.speed = speed;
         vehicles = new Vector<>();
     }
 
@@ -29,13 +31,13 @@ public class Lane {
         int random = new Random().nextInt() % VEHICLE_MAX_SPAWN_RATE;
         if(time % VEHICLE_RESPAWN_TIME == 0){
             if(random <= CAR_SPAWN_RANGE) {
-                vehicles.add(new Car(SPAWN_X_POSTION, this.y_position));
+                vehicles.add(new Car(SPAWN_X_POSTION, this.y_position, this.speed));
             }
             else if (random <= MOTORCYLCE_SPAWN_RANGE){
-                vehicles.add(new Motorcycle(SPAWN_X_POSTION, this.y_position));
+                vehicles.add(new Motorcycle(SPAWN_X_POSTION, this.y_position, this.speed));
             }
             else if (random <= TRUCK_SPAWN_RANGE){
-                vehicles.add(new Truck(SPAWN_X_POSTION, this.y_position));
+                vehicles.add(new Truck(SPAWN_X_POSTION, this.y_position, this.speed));
             }
         }
     }

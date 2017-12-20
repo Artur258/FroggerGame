@@ -1,13 +1,16 @@
 package frogger;
 
-import jplay.*;
-import java.awt.Color;
-import java.awt.Font;
+import jplay.Keyboard;
+import jplay.Scene;
+import jplay.Time;
+import jplay.Window;
+
+import java.awt.*;
 import java.io.IOException;
 import java.util.Vector;
+
 import static frogger.Settings.*;
 
-//TODO create a main menu functionality in order to test the sorting of the ranking
 //TODO create a method to instantiate all lanes properly
 public class Game {
     private int level;
@@ -15,8 +18,8 @@ public class Game {
     private Scene scenario;
     private Ranking ranking;
     private Keyboard input;
-    private Lane lane1;
-    private Time time_left = STARTING_TIME;
+    private Vector<Lane> lanes;
+    private Time time_left;
     private boolean playing;
 
     public Game(Window window) throws IOException {
@@ -24,33 +27,34 @@ public class Game {
         input = window.getKeyboard();
         scenario = new Scene();
         scenario.loadFromFile(SCENARIO_FILE);
+        lanes = new Vector<>();
+        start_lanes();
+        time_left = STARTING_TIME;
         level = FIRST_LEVEL;
-        player = new Player(PLAYER_STARTING_POSITION_X, PLAYER_STARTING_POSITION_Y);
-        lane1 = new Lane(14*LINE_WIDTH);
+        player = new Player(STARTING_POSITION_X, STARTING_POSITION_Y);
         playing = true;
 
         gameloop(window);
     }
 
     private void gameloop(Window window) throws IOException {
-
         while (playing) {
             scenario.draw();
             player.draw();
             player.move(input);
-            lane1.draw();
-            lane1.update(time_left.getSecond());
+            draw_lanes();
+            update_lanes();
             draw_hud(window);
-            check_accident(player, lane1.getVehicles());
+            check_accident();
 
             if (player.reached_finishing_line()) {
                 level++;
-                time_left = STARTING_TIME;
+                time_left.setTime(0, 0, TIME_LIMIT);
                 player.setScore(calculate_score());
                 player.respawn();
             }
 
-            if (input.keyDown(Keyboard.ENTER_KEY) || game_over()) {
+            if (game_over()) {
                 playing = false;
                 ranking.draw(window);
                 window.update();
@@ -58,7 +62,27 @@ public class Game {
             }
             window.update();
         }
+    }
 
+    private void update_lanes() {
+        for (int i = 0; i < lanes.size(); i++) {
+            lanes.get(i).update(time_left.getSecond());
+        }
+    }
+
+    private void draw_lanes() {
+        for (int i = 0; i< lanes.size(); i++){
+            lanes.get(i).draw();
+        }
+    }
+
+    private void start_lanes() {
+        lanes.add(0, new Lane(LANE_1_Y, LANE_1_SPEED));
+        lanes.add(1, new Lane(LANE_2_Y, LANE_2_SPEED));
+        lanes.add(2, new Lane(LANE_3_Y, LANE_3_SPEED));
+        lanes.add(3, new Lane(LANE_4_Y, LANE_4_SPEED));
+        lanes.add(4, new Lane(LANE_5_Y, LANE_5_SPEED));
+        lanes.add(5, new Lane(LANE_6_Y, LANE_6_SPEED));
     }
 
     private int calculate_score() {
@@ -78,14 +102,18 @@ public class Game {
 
     private void draw_hud(Window window) {
         Font font = new Font("Arial", FONT_STYLE, FONT_SIZE);
-        String HUD_text = "Level: " + level + "  " + time_left.toString() + "  Score: " + player.getScore() + "   Lives: " + player.getLives();
-        window.drawText(HUD_text, FIRST_X, FIRST_Y, Color.YELLOW, font);
+        String HUD_text = "Level: " + level + "    " + time_left.toString() + "    Score: " + player.getScore() + "    Lives: " + player.getLives();
+        window.drawText(HUD_text, FIRST_X, FIRST_Y, TEXT_COLOR, font);
     }
 
-    public void check_accident(Player player, Vector<Vehicle> vehicles){
-        for (int i = 0; i < vehicles.size(); i++) {
-            if(player.collided_with(vehicles.get(i))){
-                player.kill();
+    public void check_accident(){
+        Vector<Vehicle> vehicles;
+        for(int j = 0; j < lanes.size(); j++) {
+            vehicles = lanes.get(j).getVehicles();
+            for (int i = 0; i < vehicles.size(); i++) {
+                if (player.collided_with(vehicles.get(i)) || input.keyDown(Keyboard.ENTER_KEY)) {
+                    player.kill();
+                }
             }
         }
     }

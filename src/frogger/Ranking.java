@@ -59,9 +59,10 @@ public class Ranking {
 
         background.draw();
         String rank;
+        window.drawText("TOP SCORES", MIDDLE_DRAW_X,   LINE_WIDTH, TEXT_COLOR, font);
         for(int i=0; i< RANKINGS_TOP_SCORES; i++) {
             rank = names.get(i) + " - " + scores.get(i).toString();
-            window.drawText(rank, MIDDLE_DRAW_X,   3*i*LINE_WIDTH, Color.YELLOW, font);
+            window.drawText(rank, MIDDLE_DRAW_X,   4*FIRST_Y + 2*i*LINE_WIDTH, TEXT_COLOR, font);
         }
     }
 

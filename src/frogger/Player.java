@@ -7,6 +7,7 @@ import jplay.Sprite;
 import static frogger.Direction.*;
 import static frogger.Settings.*;
 
+//TODO adjust the frame transition
 public class Player extends Sprite {
 
     private Direction direction;
@@ -18,22 +19,22 @@ public class Player extends Sprite {
         super(PLAYER_SPRITE, PLAYER_SPRITE_FRAMES);
         this.x = x;
         this.y = y;
-        lives = PLAYER_STARTING_LIVES;
-        score = PLAYER_STARTING_SCORE;
+        lives = STARTING_LIVES;
+        score = STARTING_SCORE;
         this.setTotalDuration(FRAME_DURATION);
     }
 
     public void move(Keyboard keyboard){
         if (keyboard.keyDown(Keyboard.LEFT_KEY))
         {
-            this.setX(this.x - PLAYER_HORIZONTAL_SPEED);
+            this.setX(this.x - PLAYER_SPEED);
             this.setSequence(2,3);
             this.direction = LEFT;
             isMoving = true;
         }
         else if (keyboard.keyDown(Keyboard.RIGHT_KEY))
         {
-            this.setX(this.getX() + PLAYER_HORIZONTAL_SPEED);
+            this.setX(this.getX() + PLAYER_SPEED);
             this.setSequence(4,5);
             this.direction=RIGHT;
 
@@ -41,7 +42,7 @@ public class Player extends Sprite {
         }
         else if (keyboard.keyDown(Keyboard.UP_KEY))
         {
-            this.setY(this.getY()- PLAYER_VERTICAL_SPEED);;
+            this.setY(this.getY()- PLAYER_SPEED);;
             this.setSequence(6,7);
             this.direction=UP;
             isMoving = true;
@@ -49,7 +50,7 @@ public class Player extends Sprite {
 
         else  if (keyboard.keyDown(Keyboard.DOWN_KEY))
         {
-            this.setY(this.getY() + PLAYER_VERTICAL_SPEED);;
+            this.setY(this.getY() + PLAYER_SPEED);;
             this.setSequence(0,1);
             this.direction=DOWN;
             isMoving = true;
@@ -75,8 +76,8 @@ public class Player extends Sprite {
     }
 
     public void respawn() {
-        x = PLAYER_STARTING_POSITION_X;
-        y = PLAYER_STARTING_POSITION_Y;
+        x = STARTING_POSITION_X;
+        y = STARTING_POSITION_Y;
     }
 
     public boolean collided_with(GameObject object){
