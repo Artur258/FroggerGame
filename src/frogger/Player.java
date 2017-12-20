@@ -1,5 +1,7 @@
 package frogger;
 
+import jplay.Collision;
+import jplay.GameObject;
 import jplay.Keyboard;
 import jplay.Sprite;
 import static frogger.Direction.*;
@@ -7,17 +9,20 @@ import static frogger.Direction.*;
 public class Player extends Sprite {
 
     private Direction direction;
+    private int lives = Settings.PLAYER_STARTING_LIVES;
+    private int score = Settings.PLAYER_STARTING_SCORE;
     private boolean isMoving;
+    private boolean isAlive;
 
     public Player(int x, int y) {
         super(Settings.PLAYER_SPRITE, Settings.PLAYER_SPRITE_FRAMES);
+        this.isAlive = true;
         this.x = x;
         this.y = y;
         this.setTotalDuration(Settings.FRAME_DURATION);
     }
 
     public void move(Keyboard keyboard){
-
         if (keyboard.keyDown(Keyboard.LEFT_KEY))
         {
             this.setX(this.x - Settings.PLAYER_HORIZONTAL_SPEED);
@@ -53,5 +58,20 @@ public class Player extends Sprite {
             update();
             isMoving = false;
         }
+    }
+
+    public boolean isDead(){
+        if(this.isAlive == false){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void kill(){
+        this.isAlive = false;
+    }
+    public boolean collided_with(GameObject object){
+        return Collision.collided(this, object);
     }
 }
