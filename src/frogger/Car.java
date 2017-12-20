@@ -1,9 +1,9 @@
 package frogger;
 
-import jplay.Sprite;
+import static frogger.Settings.*;
 
 public class Car extends Vehicle{
     public Car(int x, int y) {
-        super(x, y, Settings.CAR_SPRITE);
+        super(x, y, CAR_SPRITE);
     }
 }

@@ -1,6 +1,7 @@
 package frogger;
 
 import jplay.Sprite;
+import static frogger.Settings.*;
 
 public class Vehicle extends Sprite {
     public Vehicle(int x, int y, String sprite_file) {
@@ -10,6 +11,6 @@ public class Vehicle extends Sprite {
     }
 
     public void move(){
-        this.setX(this.x + Settings.VEHICLE_SPEED);
+        this.setX(this.x + VEHICLE_SPEED);
     }
 }

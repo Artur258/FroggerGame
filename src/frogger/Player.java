@@ -5,6 +5,7 @@ import jplay.GameObject;
 import jplay.Keyboard;
 import jplay.Sprite;
 import static frogger.Direction.*;
+import static frogger.Settings.*;
 
 public class Player extends Sprite {
 
@@ -12,29 +13,27 @@ public class Player extends Sprite {
     private int lives;
     private int score;
     private boolean isMoving;
-    private boolean isAlive;
 
     public Player(int x, int y) {
-        super(Settings.PLAYER_SPRITE, Settings.PLAYER_SPRITE_FRAMES);
-        isAlive = true;
+        super(PLAYER_SPRITE, PLAYER_SPRITE_FRAMES);
         this.x = x;
         this.y = y;
-        lives = Settings.PLAYER_STARTING_LIVES;
-        score = Settings.PLAYER_STARTING_SCORE;
-        this.setTotalDuration(Settings.FRAME_DURATION);
+        lives = PLAYER_STARTING_LIVES;
+        score = PLAYER_STARTING_SCORE;
+        this.setTotalDuration(FRAME_DURATION);
     }
 
     public void move(Keyboard keyboard){
         if (keyboard.keyDown(Keyboard.LEFT_KEY))
         {
-            this.setX(this.x - Settings.PLAYER_HORIZONTAL_SPEED);
+            this.setX(this.x - PLAYER_HORIZONTAL_SPEED);
             this.setSequence(2,3);
             this.direction = LEFT;
             isMoving = true;
         }
         else if (keyboard.keyDown(Keyboard.RIGHT_KEY))
         {
-            this.setX(this.getX() + Settings.PLAYER_HORIZONTAL_SPEED);
+            this.setX(this.getX() + PLAYER_HORIZONTAL_SPEED);
             this.setSequence(4,5);
             this.direction=RIGHT;
 
@@ -42,7 +41,7 @@ public class Player extends Sprite {
         }
         else if (keyboard.keyDown(Keyboard.UP_KEY))
         {
-            this.setY(this.getY()- Settings.PLAYER_VERTICAL_SPEED);;
+            this.setY(this.getY()- PLAYER_VERTICAL_SPEED);;
             this.setSequence(6,7);
             this.direction=UP;
             isMoving = true;
@@ -50,7 +49,7 @@ public class Player extends Sprite {
 
         else  if (keyboard.keyDown(Keyboard.DOWN_KEY))
         {
-            this.setY(this.getY() + Settings.PLAYER_VERTICAL_SPEED);;
+            this.setY(this.getY() + PLAYER_VERTICAL_SPEED);;
             this.setSequence(0,1);
             this.direction=DOWN;
             isMoving = true;
@@ -63,14 +62,21 @@ public class Player extends Sprite {
     }
 
     public void kill(){
-        isAlive = false;
         lives --;
         respawn();
     }
 
-    private void respawn() {
-        x = Settings.PLAYER_STARTING_POSITION_X;
-        y = Settings.PLAYER_STARTING_POSITION_Y;
+    public boolean reached_finishing_line(){
+        if(this.y < FINISHING_LINE){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void respawn() {
+        x = PLAYER_STARTING_POSITION_X;
+        y = PLAYER_STARTING_POSITION_Y;
     }
 
     public boolean collided_with(GameObject object){

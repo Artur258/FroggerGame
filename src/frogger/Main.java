@@ -2,26 +2,28 @@ package frogger;
 
 import jplay.*;
 
+import java.io.IOException;
+
+import static frogger.Settings.*;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
-            Window start_window = new Window(Settings.WINDOW_WIDTH, Settings.WINDOW_LENGTH);
-            GameImage cover = new GameImage(Settings.COVER_IMAGE);
+            Window start_window = new Window(WINDOW_WIDTH, WINDOW_LENGTH);
+            GameImage cover = new GameImage(COVER_IMAGE);
             Keyboard input = start_window.getKeyboard();
 
-            boolean not_started = true;
+            boolean game_running = true;
 
-            while(not_started){
+            while(game_running){
                 cover.draw();
 
                 if(input.keyDown(Keyboard.ENTER_KEY)){
                     new Game(start_window);
-                    not_started = false;
                 }
                 start_window.update();
             }
             start_window.exit();
         }
-
 }
