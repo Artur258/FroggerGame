@@ -6,21 +6,22 @@ public class Main {
 
     public static void main(String[] args) {
         
-            Window game_window = new Window(Settings.WINDOW_WIDTH, Settings.WINDOW_LENGTH);
+            Window start_window = new Window(Settings.WINDOW_WIDTH, Settings.WINDOW_LENGTH);
             GameImage cover = new GameImage(Settings.COVER_IMAGE);
-            Keyboard input = game_window.getKeyboard();
-            boolean game_running = true;
-            
-            while(game_running){
+            Keyboard input = start_window.getKeyboard();
+
+            boolean not_started = true;
+
+            while(not_started){
                 cover.draw();
-                
+
                 if(input.keyDown(Keyboard.ENTER_KEY)){
-                    game_running = false;
+                    new Game(start_window);
+                    not_started = false;
                 }
-                        
-                game_window.update();
+                start_window.update();
             }
-            game_window.exit();
+            start_window.exit();
         }
 
 }
