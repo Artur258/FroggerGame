@@ -9,16 +9,18 @@ import static frogger.Direction.*;
 public class Player extends Sprite {
 
     private Direction direction;
-    private int lives = Settings.PLAYER_STARTING_LIVES;
-    private int score = Settings.PLAYER_STARTING_SCORE;
+    private int lives;
+    private int score;
     private boolean isMoving;
     private boolean isAlive;
 
     public Player(int x, int y) {
         super(Settings.PLAYER_SPRITE, Settings.PLAYER_SPRITE_FRAMES);
-        this.isAlive = true;
+        isAlive = true;
         this.x = x;
         this.y = y;
+        lives = Settings.PLAYER_STARTING_LIVES;
+        score = Settings.PLAYER_STARTING_SCORE;
         this.setTotalDuration(Settings.FRAME_DURATION);
     }
 
@@ -60,18 +62,34 @@ public class Player extends Sprite {
         }
     }
 
-    public boolean isDead(){
-        if(this.isAlive == false){
-            return true;
-        }
-        else
-            return false;
+    public void kill(){
+        isAlive = false;
+        lives --;
+        respawn();
     }
 
-    public void kill(){
-        this.isAlive = false;
+    private void respawn() {
+        x = Settings.PLAYER_STARTING_POSITION_X;
+        y = Settings.PLAYER_STARTING_POSITION_Y;
     }
+
     public boolean collided_with(GameObject object){
         return Collision.collided(this, object);
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
     }
 }
