@@ -102,6 +102,7 @@ public class Game {
         lanes.add(4, new Lane(LANE_5_Y, LANE_5_SPEED));
         lanes.add(5, new Lane(LANE_6_Y, LANE_6_SPEED));
         lanes.add(5, new Lane(LANE_7_Y, LANE_7_SPEED));
+        lanes.add(6, new Lane(LANE_8_Y, LANE_8_SPEED));
     }
 
     private int calculate_score() {

@@ -35,13 +35,15 @@ public final class Settings {
     public static final int LANE_5_Y = 288;
     public static final int LANE_6_Y = 320;
     public static final int LANE_7_Y = 344;
-    public static final double LANE_1_SPEED = 0.1;
-    public static final double LANE_2_SPEED = 0.2;
-    public static final double LANE_3_SPEED = 0.3;
-    public static final double LANE_4_SPEED = 0.4;
-    public static final double LANE_5_SPEED = 0.1;
-    public static final double LANE_6_SPEED = 0.2;
-    public static final double LANE_7_SPEED = 0.5;
+    public static final int LANE_8_Y = 376;
+    public static final double LANE_1_SPEED = 1;
+    public static final double LANE_2_SPEED = 1.3;
+    public static final double LANE_3_SPEED = 1.8;
+    public static final double LANE_4_SPEED = 2.1;
+    public static final double LANE_5_SPEED = 2.4;
+    public static final double LANE_6_SPEED = 2.7;
+    public static final double LANE_7_SPEED = 3.0;
+    public static final double LANE_8_SPEED = 3.3;
 
     public static final int NUMBER_OF_LANES = 7;
 
