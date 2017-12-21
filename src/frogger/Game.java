@@ -55,7 +55,7 @@ public class Game {
                 time_left.setTime(0, 0, TIME_LIMIT);
                 player.setScore(calculate_score());
                 player.respawn();
-                increase_lanes_speed();
+                reset_lanes();
             }
 
             if (game_over()) {
@@ -68,10 +68,15 @@ public class Game {
         }
     }
 
-    private void increase_lanes_speed() {
-        for (int i = 0; i < lanes.size(); i++) {
-            lanes.get(i).increase_speed(level);
-        }
+    private void reset_lanes() {
+        lanes.set(0, new Lane(LANE_1_Y, level*SPEED_INCREMENT_PER_LEVEL + LANE_1_SPEED));
+        lanes.set(1, new Lane(LANE_2_Y, level*SPEED_INCREMENT_PER_LEVEL + LANE_2_SPEED));
+        lanes.set(2, new Lane(LANE_3_Y, level*SPEED_INCREMENT_PER_LEVEL + LANE_3_SPEED));
+        lanes.set(3, new Lane(LANE_4_Y, level*SPEED_INCREMENT_PER_LEVEL + LANE_4_SPEED));
+        lanes.set(4, new Lane(LANE_5_Y, level*SPEED_INCREMENT_PER_LEVEL + LANE_5_SPEED));
+        lanes.set(5, new Lane(LANE_6_Y, level*SPEED_INCREMENT_PER_LEVEL + LANE_6_SPEED));
+        lanes.set(5, new Lane(LANE_7_Y, level*SPEED_INCREMENT_PER_LEVEL + LANE_7_SPEED));
+        lanes.set(6, new Lane(LANE_8_Y, level*SPEED_INCREMENT_PER_LEVEL + LANE_8_SPEED));
     }
 
     private void update_lanes() {

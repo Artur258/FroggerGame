@@ -1,6 +1,5 @@
 package frogger;
 
-
 import jplay.Time;
 import java.awt.*;
 
@@ -14,14 +13,14 @@ public final class Settings {
     public final static int STARTING_POSITION_X = 400;
     public final static int STARTING_POSITION_Y = 445;
     public final static double PLAYER_SPEED = 20;
-    public final static double SPEED_INCREMENT_PER_LEVEL = 0.7;
+    public final static double SPEED_INCREMENT_PER_LEVEL = 0.3;
     public static final int FIRST_LEVEL = 1;
     public static final int POINTS_PER_LEVEL = 100;
     public static final int POINTS_PER_SECOND_LEFT = 4;
     public final static String COVER_IMAGE = "cover2.jpg";
     //VEHICLES'S - Gameplay
-    public static final int VEHICLE_RESPAWN_TIME = 3;
-    public static final double VEHICLE_SPEED = 0.3;
+    public static final int VEHICLE_RESPAWN_TIME = 2;
+    public static final double VEHICLE_SPEED = 0.2;
 
     //VEHICLE'S - Technical
     public static final int VEHICLE_MAX_SPAWN_RATE = 100;
