@@ -102,6 +102,7 @@ public class Game {
         lanes.add(3, new Lane(LANE_4_Y, LANE_4_SPEED));
         lanes.add(4, new Lane(LANE_5_Y, LANE_5_SPEED));
         lanes.add(5, new Lane(LANE_6_Y, LANE_6_SPEED));
+        lanes.add(5, new Lane(LANE_7_Y, LANE_7_SPEED));
     }
 
     private int calculate_score() {
@@ -130,7 +131,7 @@ public class Game {
         for(int j = 0; j < lanes.size(); j++) {
             vehicles = lanes.get(j).getVehicles();
             for (int i = 0; i < vehicles.size(); i++) {
-                if (player.collided_with(vehicles.get(i)) || input.keyDown(Keyboard.ENTER_KEY)) {
+                if (player.collided_with(vehicles.get(i))){
                     player.kill();
                 }
             }
