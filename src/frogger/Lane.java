@@ -2,7 +2,6 @@ package frogger;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Vector;
 import static frogger.Settings.*;
 
 public class Lane {
@@ -30,7 +29,7 @@ public class Lane {
 
     public void spawn_vehicles(int time) {
         int random = new Random().nextInt() % VEHICLE_MAX_SPAWN_RATE;
-        if( (time % VEHICLE_RESPAWN_TIME == 0 && random % 2 == 0) || random % 3 == 0){
+        if( time % VEHICLE_RESPAWN_TIME == 0 && random % VEHICLE_SPAWN_SPLITTER == 0 && random <= VEHICLE_SPAWN_RATE){
             if(random <= CAR_SPAWN_RANGE) {
                 vehicles.add(new Car(SPAWN_X_POSTION, this.y_position, this.speed));
             }

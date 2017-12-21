@@ -1,8 +1,6 @@
 package frogger;
 
-import jplay.Keyboard;
-import jplay.Scene;
-import jplay.Time;
+import jplay.*;
 import jplay.Window;
 
 import java.awt.*;
@@ -14,6 +12,7 @@ import static frogger.Settings.*;
 
 //TODO create a method to instantiate all lanes properly
 public class Game {
+    private Sound game_song;
     private int level;
     private Player player;
     private Scene scenario;
@@ -36,6 +35,10 @@ public class Game {
         player = new Player(STARTING_POSITION_X, STARTING_POSITION_Y);
         playing = true;
         seconds = time_left.getSecond();
+        game_song = new Sound(GAME_SONG);
+
+        game_song.play();
+        game_song.setRepeat(true);
 
         gameloop(window);
     }
@@ -56,6 +59,8 @@ public class Game {
                 player.setScore(calculate_score());
                 player.respawn();
                 reset_lanes();
+                new Sound(LEVEL_UP_SOUND).play();
+                new Sound(FROG_SOUND).play();
             }
 
             if (game_over()) {
@@ -125,6 +130,7 @@ public class Game {
         if(player.getLives() == 0 || time_left.timeEnded()){
             NameInputWindow name_input = new NameInputWindow();
             String player_name = name_input.get_name();
+            game_song.stop();
             ranking.update(player_name,player.getScore());
             return true;
         }

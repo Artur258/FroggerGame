@@ -12,15 +12,17 @@ public final class Settings {
     public static final int STARTING_LIVES = 3;
     public final static int STARTING_POSITION_X = 400;
     public final static int STARTING_POSITION_Y = 445;
-    public final static double PLAYER_SPEED = 20;
+    public final static double PLAYER_SPEED = 32;
     public final static double SPEED_INCREMENT_PER_LEVEL = 0.3;
     public static final int FIRST_LEVEL = 1;
     public static final int POINTS_PER_LEVEL = 100;
     public static final int POINTS_PER_SECOND_LEFT = 4;
     public final static String COVER_IMAGE = "cover2.jpg";
     //VEHICLES'S - Gameplay
-    public static final int VEHICLE_RESPAWN_TIME = 2;
+    public static final int VEHICLE_RESPAWN_TIME = 5;
     public static final double VEHICLE_SPEED = 0.2;
+    public static final int VEHICLE_SPAWN_SPLITTER = 1;
+    public static final int VEHICLE_SPAWN_RATE = 6;
 
     //VEHICLE'S - Technical
     public static final int VEHICLE_MAX_SPAWN_RATE = 100;
@@ -50,15 +52,24 @@ public final class Settings {
     public static final int NUMBER_OF_LANES = 7;
 
     //SPRITES
-    public final static int PLAYER_SPRITE_FRAMES = 8;
-    public final static String PLAYER_SPRITE = "frog2.png";
+    public final static int PLAYER_SPRITE_FRAMES = 15;
+    public final static String PLAYER_SPRITE = "frog.png";
     public static final String CAR_SPRITE = "car.png";
     public static final String MOTORCYLCE_SPRITE = "motorcycle.png";
     public static final String TRUCK_SPRITE = "truck.png";
 
+    //ANIMATION
+    public final static int FRAMEMS_PER_MOVING_SEQUENCE = 3;
+    public final static int FRAMEMS_PER_STATIC_SEQUENCE = 2;
+
     //WINDOW'S
     public final static int WINDOW_WIDTH = 960;
     public final static int WINDOW_LENGTH = 480;
+    public final static int WINDOW_TOP = 0;
+    public final static int WINDOW_BOTTOM = 480;
+    public final static int WINDOW_LEFT_SIDE = 0;
+    public final static int WINDOW_RIGHT_SIDE = 960;
+    public final static int EXTRA_PIXELS = 30;
     public static final int LINE_WIDTH = 32;
     public static final int COLUMN_WIDTH = 32;
 
@@ -71,6 +82,12 @@ public final class Settings {
     public static final int RANKINGS_TOP_SCORES = 5;
     public static final String RANKINGS_FILE = "rankings.txt";
     public static final String RANKINGS_BACKGROUND_FILE = "rankings_background.png";
+
+    //SOUNDS
+    public static final String MENU_SONG = "menu_theme.wav";
+    public static final String FROG_SOUND = "frog_sound.wav";
+    public static final String LEVEL_UP_SOUND = "level_up_sound.wav";
+    public static final String GAME_SONG = "game_song.wav";
 
     //MISC
     public static final int FIRST_Y = 32;
