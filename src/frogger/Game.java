@@ -7,6 +7,8 @@ import jplay.Window;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Vector;
 
 import static frogger.Settings.*;
@@ -18,21 +20,23 @@ public class Game {
     private Scene scenario;
     private Ranking ranking;
     private Keyboard input;
-    private Vector<Lane> lanes;
+    private ArrayList<Lane> lanes;
     private Time time_left;
     private boolean playing;
+    private float seconds;
 
     public Game(Window window) throws IOException {
         ranking = new Ranking();
         input = window.getKeyboard();
         scenario = new Scene();
         scenario.loadFromFile(SCENARIO_FILE);
-        lanes = new Vector<>();
+        lanes = new ArrayList<>();
         start_lanes();
         time_left = STARTING_TIME;
         level = FIRST_LEVEL;
         player = new Player(STARTING_POSITION_X, STARTING_POSITION_Y);
         playing = true;
+        seconds = time_left.getSecond();
 
         gameloop(window);
     }
@@ -65,8 +69,23 @@ public class Game {
     }
 
     private void update_lanes() {
+        Random randUpDown = new Random();
+        double resultUpDown = 0;
+        int tempI = 0;
+
         for (int i = 0; i < lanes.size(); i++) {
             lanes.get(i).update(time_left.getSecond());
+            resultUpDown = randUpDown.nextInt(2);
+            if (resultUpDown == CHANGE_UP) {
+                tempI = i - 1;
+            }
+            else if (resultUpDown == CHANGE_DOWN) {
+                tempI = i + 1;
+            }
+            if (tempI >= 0 && tempI <= NUMBER_OF_LANES-1 && (seconds - time_left.getSecond() == 1)) {
+                seconds = time_left.getSecond();
+                lanes.get(i).changeLane(lanes.get(tempI));
+            }
         }
     }
 
@@ -107,7 +126,7 @@ public class Game {
     }
 
     public void check_accident(){
-        Vector<Vehicle> vehicles;
+        ArrayList<Vehicle> vehicles;
         for(int j = 0; j < lanes.size(); j++) {
             vehicles = lanes.get(j).getVehicles();
             for (int i = 0; i < vehicles.size(); i++) {

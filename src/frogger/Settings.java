@@ -35,12 +35,12 @@ public final class Settings {
     public static final int LANE_4_Y = 192;
     public static final int LANE_5_Y = 320;
     public static final int LANE_6_Y = 344;
-    public static final double LANE_1_SPEED = 1;
-    public static final double LANE_2_SPEED = 1.3;
-    public static final double LANE_3_SPEED = 1.5;
-    public static final double LANE_4_SPEED = 1.7;
-    public static final double LANE_5_SPEED = 2;
-    public static final double LANE_6_SPEED = 2.1;
+    public static final double LANE_1_SPEED = 0.1;
+    public static final double LANE_2_SPEED = 0.2;
+    public static final double LANE_3_SPEED = 0.3;
+    public static final double LANE_4_SPEED = 0.4;
+    public static final double LANE_5_SPEED = 0.1;
+    public static final double LANE_6_SPEED = 0.2;
     public static final int NUMBER_OF_LANES = 6;
 
     //SPRITES
@@ -74,7 +74,10 @@ public final class Settings {
     public final static String SCENARIO_FILE = "scenario/scenario1.scn";
     public static final long FRAME_DURATION = 2000;
     public static final int TILE = 32;
-
+    public static final int CHANGE_UP = 0;
+    public static final int CHANGE_DOWN = 1;
+    public static final int MAX_CHANCE = 100;
+    public static final int CHANCE = 25;
 
 
 }

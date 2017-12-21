@@ -1,12 +1,13 @@
 package frogger;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 import static frogger.Settings.*;
 
 public class Lane {
     private int y_position;
-    private Vector<Vehicle> vehicles;
+    private ArrayList<Vehicle> vehicles;
     private int lastSecond;
     private double speed;
 
@@ -14,10 +15,10 @@ public class Lane {
     public Lane(int y_position, double speed) {
         this.y_position = y_position;
         this.speed = speed;
-        vehicles = new Vector<>();
+        vehicles = new ArrayList<>();
     }
 
-    public Vector<Vehicle> getVehicles() {
+    public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
     
@@ -54,4 +55,31 @@ public class Lane {
         }
     }
 
+    public void changeLane(Lane lane) {
+        Random randChance = new Random();
+        double chance = randChance.nextInt(1);
+
+        for(int i = 0; i < vehicles.size(); i++) {
+            chance = randChance.nextInt(MAX_CHANCE);
+            if (chance <= CHANCE && vehicles.get(i).canChangeLane(lane)) {
+                lane.pushVehicle(vehicles.get(i));
+                this.popVehicle(i);
+                return ;
+            }
+        }
+    }
+
+    public void popVehicle(int i) {
+        vehicles.remove(i);
+    }
+
+    public void pushVehicle(Vehicle vehicle) {
+        vehicles.add(vehicle);
+        vehicle.setY(y_position);
+        vehicle.setBase_speed(speed);
+    }
+
+    public int getY_position() {
+        return y_position;
+    }
 }

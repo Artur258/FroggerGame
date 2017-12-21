@@ -25,7 +25,7 @@ public class Player extends Sprite {
     }
 
     public void move(Keyboard keyboard){
-        if (keyboard.keyDown(Keyboard.LEFT_KEY))
+        if (keyboard.keyDown(Keyboard.LEFT_KEY) )
         {
             this.setX(this.x - PLAYER_SPEED);
             this.setSequence(2,3);
@@ -51,7 +51,7 @@ public class Player extends Sprite {
         else  if (keyboard.keyDown(Keyboard.DOWN_KEY))
         {
             this.setY(this.getY() + PLAYER_SPEED);;
-            this.setSequence(0,1);
+            this.setSequence(0,10);
             this.direction=DOWN;
             isMoving = true;
         }
