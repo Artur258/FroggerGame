@@ -13,6 +13,7 @@ public class Main {
             Window start_window = new Window(WINDOW_WIDTH, WINDOW_LENGTH);
             GameImage cover = new GameImage(COVER_IMAGE);
             Keyboard input = start_window.getKeyboard();
+            Game game;
 
             boolean game_running = true;
 
@@ -20,7 +21,7 @@ public class Main {
                 cover.draw();
 
                 if(input.keyDown(Keyboard.ENTER_KEY)){
-                    new Game(start_window);
+                    game = new Game(start_window);
                 }
                 start_window.update();
             }

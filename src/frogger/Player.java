@@ -27,33 +27,48 @@ public class Player extends Sprite {
     public void move(Keyboard keyboard){
         if (keyboard.keyDown(Keyboard.LEFT_KEY))
         {
-            this.setX(this.x - PLAYER_SPEED);
-            this.setSequence(2,3);
-            this.direction = LEFT;
-            isMoving = true;
+            if(x > WINDOW_LEFT_BOUNDARY) {
+                x -= PLAYER_SPEED;
+                if(direction != LEFT){
+                    setSequence(5, 7);
+                    direction = LEFT;
+                };
+                isMoving = true;
+            }
         }
         else if (keyboard.keyDown(Keyboard.RIGHT_KEY))
         {
-            this.setX(this.getX() + PLAYER_SPEED);
-            this.setSequence(4,5);
-            this.direction=RIGHT;
-
-            isMoving = true;
+            if(x < WINDOW_RIGHT_BOUNDARY) {
+                x += PLAYER_SPEED;
+                if(direction != RIGHT){
+                    setSequence(9, 11);
+                    direction = RIGHT;
+                };
+                isMoving = true;
+            }
         }
         else if (keyboard.keyDown(Keyboard.UP_KEY))
         {
-            this.setY(this.getY()- PLAYER_SPEED);;
-            this.setSequence(6,7);
-            this.direction=UP;
-            isMoving = true;
+            if( y > WINDOW_UPPER_BOUNDARY) {
+                y -= PLAYER_SPEED;
+                if(direction != UP){
+                    setSequence(13, 15);
+                    direction = UP;
+                };
+                isMoving = true;
+            }
         }
 
         else  if (keyboard.keyDown(Keyboard.DOWN_KEY))
         {
-            this.setY(this.getY() + PLAYER_SPEED);;
-            this.setSequence(0,1);
-            this.direction=DOWN;
-            isMoving = true;
+            if( y < WINDOW_LOWER_BOUNDARY) {
+                y += PLAYER_SPEED;
+                if(direction != DOWN){
+                    setSequence(1, 4);
+                    direction = DOWN;
+                };
+                isMoving = true;
+            }
         }
 
         if(isMoving){
@@ -79,6 +94,25 @@ public class Player extends Sprite {
         x = STARTING_POSITION_X;
         y = STARTING_POSITION_Y;
     }
+
+    /*
+    public void draw(){
+        super.draw();
+
+        if(!isMoving && direction == LEFT){
+            setSequence(10, 12);
+        }
+        if(!isMoving && direction == RIGHT){
+            setSequence(12, 14);
+        }
+        if(!isMoving && direction == UP){
+            setSequence(8, 9);
+        }
+        if(direction == DOWN){
+            setSequence(8, 10);
+        }
+    }
+    */
 
     public boolean collided_with(GameObject object){
         return Collision.collided(this, object);

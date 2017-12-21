@@ -45,8 +45,8 @@ public final class Settings {
     public static final int NUMBER_OF_LANES = 6;
 
     //SPRITES
-    public final static int PLAYER_SPRITE_FRAMES = 8;
-    public final static String PLAYER_SPRITE = "frog2.png";
+    public final static int PLAYER_SPRITE_FRAMES = 15;
+    public final static String PLAYER_SPRITE = "frog.png";
     public static final String CAR_SPRITE = "car.png";
     public static final String MOTORCYLCE_SPRITE = "motorcycle.png";
     public static final String TRUCK_SPRITE = "truck.png";
@@ -54,6 +54,10 @@ public final class Settings {
     //WINDOW'S
     public final static int WINDOW_WIDTH = 960;
     public final static int WINDOW_LENGTH = 480;
+    public final static int WINDOW_UPPER_BOUNDARY = 0;
+    public final static int WINDOW_LOWER_BOUNDARY = 480;
+    public final static int WINDOW_LEFT_BOUNDARY = 0;
+    public final static int WINDOW_RIGHT_BOUNDARY = 480;
     public static final int LINE_WIDTH = 32;
     public static final int COLUMN_WIDTH = 32;
 
