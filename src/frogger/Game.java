@@ -9,7 +9,6 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Vector;
 
 import static frogger.Settings.*;
 

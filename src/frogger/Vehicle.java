@@ -4,9 +4,6 @@ import jplay.Collision;
 import jplay.GameObject;
 import jplay.Sprite;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import static frogger.Settings.*;
 
 public class Vehicle extends Sprite {

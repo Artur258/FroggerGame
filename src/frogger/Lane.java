@@ -57,7 +57,7 @@ public class Lane {
 
     public void changeLane(Lane lane) {
         Random randChance = new Random();
-        double chance = randChance.nextInt(1);
+        double chance;
 
         for(int i = 0; i < vehicles.size(); i++) {
             chance = randChance.nextInt(MAX_CHANCE);

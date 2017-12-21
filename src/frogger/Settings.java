@@ -32,15 +32,18 @@ public final class Settings {
     public static final int LANE_2_Y = 128;
     public static final int LANE_3_Y = 160;
     public static final int LANE_4_Y = 192;
-    public static final int LANE_5_Y = 320;
-    public static final int LANE_6_Y = 344;
+    public static final int LANE_5_Y = 288;
+    public static final int LANE_6_Y = 320;
+    public static final int LANE_7_Y = 344;
     public static final double LANE_1_SPEED = 0.1;
     public static final double LANE_2_SPEED = 0.2;
     public static final double LANE_3_SPEED = 0.3;
     public static final double LANE_4_SPEED = 0.4;
     public static final double LANE_5_SPEED = 0.1;
     public static final double LANE_6_SPEED = 0.2;
-    public static final int NUMBER_OF_LANES = 6;
+    public static final double LANE_7_SPEED = 0.5;
+
+    public static final int NUMBER_OF_LANES = 7;
 
     //SPRITES
     public final static int PLAYER_SPRITE_FRAMES = 8;
