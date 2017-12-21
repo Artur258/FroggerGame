@@ -82,4 +82,8 @@ public class Lane {
     public int getY_position() {
         return y_position;
     }
+
+    public void increase_speed(int level) {
+        speed += level*SPEED_INCREMENT_PER_LEVEL;
+    }
 }

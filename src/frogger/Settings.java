@@ -12,9 +12,12 @@ public final class Settings {
     public static final int STARTING_SCORE = 0;
     public static final int STARTING_LIVES = 3;
     public final static int STARTING_POSITION_X = 400;
-    public final static int STARTING_POSITION_Y = 400;
+    public final static int STARTING_POSITION_Y = 445;
     public final static double PLAYER_SPEED = 20;
-    public static final int FIRST_LEVEL = 0;
+    public final static double SPEED_INCREMENT_PER_LEVEL = 0.7;
+    public static final int FIRST_LEVEL = 1;
+    public static final int POINTS_PER_LEVEL = 100;
+    public static final int POINTS_PER_SECOND_LEFT = 4;
     public final static String COVER_IMAGE = "cover2.jpg";
     //VEHICLES'S - Gameplay
     public static final int VEHICLE_RESPAWN_TIME = 3;

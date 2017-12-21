@@ -55,6 +55,7 @@ public class Game {
                 time_left.setTime(0, 0, TIME_LIMIT);
                 player.setScore(calculate_score());
                 player.respawn();
+                increase_lanes_speed();
             }
 
             if (game_over()) {
@@ -64,6 +65,12 @@ public class Game {
                 while(!input.keyDown(Keyboard.ENTER_KEY));
             }
             window.update();
+        }
+    }
+
+    private void increase_lanes_speed() {
+        for (int i = 0; i < lanes.size(); i++) {
+            lanes.get(i).increase_speed(level);
         }
     }
 
@@ -106,7 +113,7 @@ public class Game {
     }
 
     private int calculate_score() {
-        return level + player.getScore();
+        return level*POINTS_PER_LEVEL + time_left.getSecond()*POINTS_PER_SECOND_LEFT + player.getScore();
     }
 
     private boolean game_over() throws IOException {
